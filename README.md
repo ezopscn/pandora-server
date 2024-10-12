@@ -1,5 +1,9 @@
 <!--suppress HtmlDeprecatedAttribute -->
-<h1 align="center">🥳 PANDORA</h1>
+<div align="center">
+  <img height="30" src="./docs/image/logo.png"/>
+</div>
+
+<h3 align="center">一个由 Go + React 开发的 Kubernetes 运维管理系统</h3>
 
 <p align="center">
   <a>
