@@ -15,7 +15,7 @@ func main() {
 	global.FS = fs
 
 	// 读取版本信息文件
-	version, err := global.FS.ReadFile(global.SYSTEM_VERSION_FILE)
+	version, err := global.FS.ReadFile(global.SystemVersionFile)
 	if err != nil || string(version) == "" {
 		panic("版本信息文件读取失败，请确认项目中 version 文件是否真实存在或者配置正确：" + err.Error())
 	} else {

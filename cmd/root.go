@@ -8,8 +8,8 @@ import (
 
 // 命令入口
 var rootCmd = &cobra.Command{
-	Use:   global.SYSTEM_NAME,
-	Short: fmt.Sprintf("%s（%s），%s", global.SYSTEM_EN_NAME, global.SYSTEM_CN_NAME, global.SYSTEM_DESCRIBE),
+	Use:   global.SystemName,
+	Short: fmt.Sprintf("%s（%s），%s", global.SystemENName, global.SystemCNName, global.SystemDescribe),
 	// 如果有相关的 action 要执行，请取消下面这行代码的注释
 	// Run: func(cmd *cobra.Command, args []string) { },
 }

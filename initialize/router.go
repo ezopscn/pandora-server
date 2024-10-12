@@ -12,7 +12,7 @@ func Router() *gin.Engine {
 	r := gin.New()
 
 	// 路由组
-	rg := r.Group(global.SYSTEM_API_PREFIX)
+	rg := r.Group(global.SystemApiPrefix)
 	route.PublicRoutes(rg)
 	return r
 }

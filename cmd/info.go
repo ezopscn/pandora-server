@@ -19,13 +19,13 @@ var infoCmd = &cobra.Command{
 		t := table.NewWriter()
 		t.AppendHeader(table.Row{"名称", "说明"})
 		t.AppendRows([]table.Row{
-			{"英文名称", global.SYSTEM_EN_NAME},
-			{"中文名称", global.SYSTEM_CN_NAME},
-			{"项目说明", global.SYSTEM_DESCRIBE},
+			{"英文名称", global.SystemENName},
+			{"中文名称", global.SystemCNName},
+			{"项目说明", global.SystemDescribe},
 			{"系统版本", global.SystemVersion},
-			{"GO 版本", global.SYSTEM_GO_VERSION},
-			{"开发人员", global.SYSTEM_DEVELOPER_NAME},
-			{"开发邮箱", global.SYSTEM_DEVELOPER_EMAIL},
+			{"GO 版本", global.SystemGoVersion},
+			{"开发人员", global.SystemDeveloperName},
+			{"开发邮箱", global.SystemDeveloperEmail},
 		})
 		fmt.Println(t.Render())
 	},

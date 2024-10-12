@@ -14,12 +14,12 @@ func HealthHandler(ctx *gin.Context) {
 // 系统信息接口
 func InfoHandler(ctx *gin.Context) {
 	ctx.JSON(http.StatusOK, gin.H{
-		"enName":         global.SYSTEM_EN_NAME,
-		"cnName":         global.SYSTEM_CN_NAME,
-		"describe":       global.SYSTEM_DESCRIBE,
+		"enName":         global.SystemENName,
+		"cnName":         global.SystemCNName,
+		"describe":       global.SystemDescribe,
 		"version":        global.SystemVersion,
-		"go":             global.SYSTEM_GO_VERSION,
-		"developerName":  global.SYSTEM_DEVELOPER_NAME,
-		"developerEmail": global.SYSTEM_DEVELOPER_EMAIL,
+		"go":             global.SystemGoVersion,
+		"developerName":  global.SystemDeveloperName,
+		"developerEmail": global.SystemDeveloperEmail,
 	})
 }
