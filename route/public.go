@@ -2,7 +2,7 @@ package route
 
 import (
 	"github.com/gin-gonic/gin"
-	v1 "pandora-server/api/v1"
+	"pandora-server/api/v1"
 )
 
 // 开放路由组
