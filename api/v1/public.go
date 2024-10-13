@@ -4,6 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"pandora-server/global"
+	"pandora-server/pkg/response"
 )
 
 // 健康检测接口
@@ -13,7 +14,7 @@ func HealthHandler(ctx *gin.Context) {
 
 // 系统信息接口
 func InfoHandler(ctx *gin.Context) {
-	ctx.JSON(http.StatusOK, gin.H{
+	response.SuccessWithData(gin.H{
 		"enName":         global.SystemENName,
 		"cnName":         global.SystemCNName,
 		"describe":       global.SystemDescribe,
