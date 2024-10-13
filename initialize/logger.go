@@ -16,28 +16,23 @@ func ZapLocalTimeEncoder(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
 }
 
 // 日志初始化
-func NewLogger(cfg global.LoggerConfiguration) *zap.SugaredLogger {
-	// 新建配置
-	config := zap.NewProductionEncoderConfig()
+func NewLogger(c global.LoggerConfiguration) *zap.SugaredLogger {
+	config := zap.NewProductionEncoderConfig()       // 新建配置
 	config.EncodeTime = ZapLocalTimeEncoder          // 调整时间
 	config.EncodeLevel = zapcore.CapitalLevelEncoder // 关闭颜色
 	var ws zapcore.WriteSyncer                       // 输出
-	if cfg.Enabled {
+	if c.Enabled {
 		// 日志文件
 		now := time.Now()
-		filename := fmt.Sprintf("%s-%04d-%02d-%02d.log",
-			cfg.Path,
-			now.Year(),
-			now.Month(),
-			now.Day())
+		filename := fmt.Sprintf("%s-%04d-%02d-%02d.log", c.Path, now.Year(), now.Month(), now.Day())
 
 		// 日志切割规则
 		hook := &lumberjack.Logger{
 			Filename:   filename,
-			MaxSize:    cfg.MaxSize,
-			MaxAge:     cfg.MaxAge,
-			MaxBackups: cfg.MaxBackups,
-			Compress:   cfg.Compress,
+			MaxSize:    c.MaxSize,
+			MaxAge:     c.MaxAge,
+			MaxBackups: c.MaxBackups,
+			Compress:   c.Compress,
 		}
 
 		// 延时关闭
@@ -53,7 +48,7 @@ func NewLogger(cfg global.LoggerConfiguration) *zap.SugaredLogger {
 	}
 
 	// 整合日志输出信息
-	core := zapcore.NewCore(zapcore.NewConsoleEncoder(config), ws, cfg.Level)
+	core := zapcore.NewCore(zapcore.NewConsoleEncoder(config), ws, c.Level)
 	logger := zap.New(core, zap.AddCaller(), zap.AddCallerSkip(1))
 	return logger.Sugar()
 }
