@@ -58,8 +58,11 @@ var startCmd = &cobra.Command{
 		}
 
 		// 初始化日志
-		initialize.SystemLogger() // 系统日志初始化
-		initialize.AccessLogger() // 访问日志初始化
+		initialize.SystemLogger()
+		initialize.AccessLogger()
+
+		// 初始化数据库
+		initialize.MySQL()
 
 		// 路由初始化
 		r := initialize.Router()

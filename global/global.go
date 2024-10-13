@@ -3,6 +3,7 @@ package global
 import (
 	"embed"
 	"go.uber.org/zap"
+	"gorm.io/gorm"
 )
 
 var (
@@ -12,6 +13,8 @@ var (
 	SystemLog *zap.SugaredLogger
 	// 访问日志工具
 	AccessLog *zap.SugaredLogger
+	// 数据库连接
+	MySQLDB *gorm.DB
 )
 
 const (
