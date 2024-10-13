@@ -13,6 +13,7 @@ func Router() *gin.Engine {
 	r := gin.New()
 
 	// 中间件
+	r.Use(middleware.Cors)      // 跨域访问中间件
 	r.Use(middleware.Exception) // 异常捕获中间件
 
 	// 路由组

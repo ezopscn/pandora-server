@@ -2,11 +2,16 @@ package global
 
 import (
 	"embed"
+	"go.uber.org/zap"
 )
 
 var (
 	// 打包的静态资源文件用于全局使用
 	FS embed.FS
+	// 系统日志工具
+	SystemLog *zap.SugaredLogger
+	// 访问日志工具
+	AccessLog *zap.SugaredLogger
 )
 
 const (
@@ -39,4 +44,11 @@ var (
 	SystemListenPort = ""
 	// 配置文件
 	SystemConfigFilename = "pandora.yaml"
+)
+
+// 时间格式化
+const (
+	MillisecondTimeFormat = "2006-01-02 15:04:05.000"
+	SecondTimeFormat      = "2006-01-02 15:04:05"
+	DateTimeFormat        = "2006-01-02"
 )

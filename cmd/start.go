@@ -57,6 +57,10 @@ var startCmd = &cobra.Command{
 			global.SystemListenPort = global.Config.System.Port
 		}
 
+		// 初始化日志
+		initialize.SystemLogger() // 系统日志初始化
+		initialize.AccessLogger() // 访问日志初始化
+
 		// 路由初始化
 		r := initialize.Router()
 		addr := fmt.Sprintf("%s:%s", global.SystemListenAddress, global.SystemListenPort)
