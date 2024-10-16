@@ -1,9 +1,7 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/spf13/cobra"
-	"pandora-server/global"
 	"pandora-server/initialize"
 )
 
@@ -24,7 +22,6 @@ var tableCmd = &cobra.Command{
 	Use:   "table",
 	Short: "数据库结构（数据表）初始化",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(global.LOGO)
 		initialize.Config()
 		initialize.MySQL()
 		initialize.MigrateTable()
@@ -36,7 +33,6 @@ var dataCmd = &cobra.Command{
 	Use:   "data",
 	Short: "系统基础依赖数据初始化",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println(global.LOGO)
 		initialize.Config()
 		initialize.MySQL()
 		initialize.MigrateData()

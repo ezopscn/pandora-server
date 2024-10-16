@@ -2,6 +2,7 @@ package global
 
 import (
 	"embed"
+	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
 )
@@ -15,6 +16,8 @@ var (
 	AccessLog *zap.SugaredLogger
 	// 数据库连接
 	MySQLDB *gorm.DB
+	// 缓存连接
+	RedisCache *redis.Client
 )
 
 const (

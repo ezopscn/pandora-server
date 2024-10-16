@@ -24,3 +24,8 @@ func InfoHandler(ctx *gin.Context) {
 		"developerEmail": global.SystemDeveloperEmail,
 	})
 }
+
+// 用户登录接口
+func LoginHandler(ctx *gin.Context) {
+	response.Success()
+}

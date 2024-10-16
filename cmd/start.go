@@ -64,6 +64,9 @@ var startCmd = &cobra.Command{
 		// 初始化数据库
 		initialize.MySQL()
 
+		// 初始化缓存
+		initialize.Redis()
+
 		// 路由初始化
 		r := initialize.Router()
 		addr := fmt.Sprintf("%s:%s", global.SystemListenAddress, global.SystemListenPort)
@@ -79,9 +82,6 @@ var startCmd = &cobra.Command{
 				panic("服务启动异常：" + err.Error())
 			}
 		}()
-
-		// 服务启动信息
-		fmt.Println("服务启动完成，监听地址：" + addr)
 
 		// 接收优雅关闭信号
 		quit := make(chan os.Signal, 1)
