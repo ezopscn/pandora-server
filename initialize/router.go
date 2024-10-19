@@ -22,10 +22,10 @@ func Router() *gin.Engine {
 	}
 
 	// 路由组
-	route.PublicRoutes(r.Group(global.SystemApiPrefix), auth)                // 免登录路由组
-	route.PublicAuthRoutes(r.Group(global.SystemApiPrefix), auth)            // 登录路由组
-	route.SystemUserRoutes(r.Group(global.SystemApiPrefix + "/system/user")) // 系统用户路由组
-	route.SystemMenuRoutes(r.Group(global.SystemApiPrefix + "/system/menu")) // 系统菜单路由组
+	route.PublicRoutes(r.Group(global.SystemApiPrefix), auth)                        // 免登录路由组
+	route.PublicAuthRoutes(r.Group(global.SystemApiPrefix), auth)                    // 登录路由组
+	route.SystemUserAuthRoutes(r.Group(global.SystemApiPrefix+"/system/user"), auth) // 系统用户路由组
+	route.SystemMenuAuthRoutes(r.Group(global.SystemApiPrefix+"/system/menu"), auth) // 系统菜单路由组
 
 	return r
 }

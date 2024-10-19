@@ -17,6 +17,6 @@ func PublicRoutes(rg *gin.RouterGroup, auth *jwt.GinJWTMiddleware) gin.IRoutes {
 // 登录路由组
 func PublicAuthRoutes(rg *gin.RouterGroup, auth *jwt.GinJWTMiddleware) gin.IRoutes {
 	authRG := rg.Use(auth.MiddlewareFunc())
-	authRG.POST("/logout", auth.LogoutHandler) // 用户注销登录
+	authRG.GET("/logout", auth.LogoutHandler) // 用户注销登录
 	return authRG
 }

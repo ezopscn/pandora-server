@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm/clause"
 	"pandora-server/dto"
@@ -98,5 +99,11 @@ func SearchSystemUserListService(ctx *gin.Context) (systemUsers []model.SystemUs
 
 	// 最终查询
 	err = dbt.Preload(clause.Associations).Find(&systemUsers).Error
+	return
+}
+
+// 通过条件获取指定用户的详细信息
+func SearchSystemUserDetailService(fieldName string, value interface{}) (systemUser model.SystemUser, err error) {
+	err = global.MySQLDB.Where(fmt.Sprintf("%s = ?", fieldName), value).Preload(clause.Associations).First(&systemUser).Error
 	return
 }
